@@ -1,0 +1,39 @@
+{
+    "name": "Go Development (Microsoft Template)",
+    "image": "mcr.microsoft.com/devcontainers/go:1.22", // Используем готовый образ от Microsoft
+    "forwardPorts": [8000, 5500], // Пробрасываем порт 8000 для тестирования
+    "postCreateCommand": "go mod tidy", // Обновляем зависимости после создания контейнера
+  
+    // Настройки для VS Code
+    "settings": {
+      "go.gopath": "/go",
+      "go.goroot": "/usr/local/go",
+      "go.useLanguageServer": true,
+      "go.lintTool": "golangci-lint",
+      "go.lintOnSave": "package",
+      "go.vetOnSave": "package",
+      "go.testFlags": ["-v"],
+      "go.coverageDecorator": {
+        "type": "gutter",
+        "coveredHighlightColor": "rgba(64,128,128,0.5)",
+        "uncoveredHighlightColor": "rgba(128,64,64,0.25)"
+      }
+    },
+  
+    // Устанавливаем расширения для VS Code
+    "extensions": [
+      "golang.go", // Официальное расширение для Go
+      "ms-vscode.makefile-tools", // Для работы с Makefile
+      "streetsidesoftware.code-spell-checker" // Проверка орфографии
+    ],
+  
+    // Настройки для контейнера
+    "containerUser": "vscode", // Используем пользователя vscode для работы внутри контейнера
+    "remoteUser": "vscode", // Указываем пользователя для удаленного подключения
+  
+    // Дополнительные настройки (опционально)
+    "features": {
+      "git": "latest", // Устанавливаем последнюю версию Git
+      "docker-in-docker": "latest" // Устанавливаем Docker-in-Docker, если нужно
+    }
+  }
