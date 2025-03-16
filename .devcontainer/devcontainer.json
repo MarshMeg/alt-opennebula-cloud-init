@@ -1,7 +1,10 @@
 {
     "name": "Go Development (Microsoft Template)",
     "image": "mcr.microsoft.com/devcontainers/go:1.22", // Используем готовый образ от Microsoft
-    "forwardPorts": [8000, 5500], // Пробрасываем порт 8000 для тестирования
+    "forwardPorts": [
+      8000, 
+      5500
+    ], // Пробрасываем порт 8000, 5500 для тестирования
     "postCreateCommand": "go mod tidy", // Обновляем зависимости после создания контейнера
   
     // Настройки для VS Code
