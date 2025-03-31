@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"opennebula-init/controller"
+	"opennebula-init/worker"
 )
 
 func main() {
@@ -13,6 +14,8 @@ func main() {
 
 	if controllerIp.String() == "127.0.0.1" {
 		controller.ControllerInit()
+	} else {
+		worker.WorkerInit(controllerIp)
 	}
 }
 
